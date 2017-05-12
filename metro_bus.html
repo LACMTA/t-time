@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US"><head>
+<html dir="ltr" lang="en-US"><head>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes"/>
 	<title>Metro - Los Angeles</title>
@@ -188,7 +188,8 @@ function updateActiveSchedules(event){
 		const stoptimes={}
 		forEach.call(stopinfo,function(stopname){
 			const headelement=document.createElement("th");
-			headelement.textContent=stopname[0];
+			headelement.innerHTML = '<span class="stop-text"><span>' + stopname[0] + '</span></span>';
+			// headelement.textContent=stopname[0];
 			headelement.dataset["stopid"]=stopname[1];
 			thead.appendChild(headelement);
 			stoptimes[stopname[0]]=[];
@@ -260,7 +261,8 @@ function updateStaticSchedules(forDate){
 				const stopinfo=route["stops"][destination];
 				forEach.call(stopinfo,function(stopname){
 					const headelement=document.createElement("th");
-					headelement.textContent=stopname[0];
+          headelement.innerHTML = '<span class="stop-text"><span>' + stopname[0] + '</span></span>';
+					// headelement.textContent=stopname[0];
 					headelement.dataset["stopid"]=stopname[1];
 					thead.appendChild(headelement);
 				});
