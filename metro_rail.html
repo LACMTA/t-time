@@ -118,7 +118,8 @@ function updateActiveSchedules(event){
 		const stoptimes={}
 		forEach.call(stopinfo,function(stopname){
 			const headelement=document.createElement("th");
-			headelement.textContent=stopname[0];
+			headelement.innerHTML = '<span class="stop-text"><span>' + stopname[0] + '</span></span>';
+			// headelement.textContent=stopname[0];
 			headelement.dataset["stopid"]=stopname[1];
 			thead.appendChild(headelement);
 			stoptimes[stopname[0]]=[];
@@ -190,7 +191,8 @@ function updateStaticSchedules(forDate){
 				const stopinfo=route["stops"][destination];
 				forEach.call(stopinfo,function(stopname){
 					const headelement=document.createElement("th");
-					headelement.textContent=stopname[0];
+					// headelement.textContent=stopname[0];
+					headelement.innerHTML = '<span class="stop-text"><span>' + stopname[0] + '</span></span>';
 					headelement.dataset["stopid"]=stopname[1];
 					thead.appendChild(headelement);
 				});
